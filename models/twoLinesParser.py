@@ -23,7 +23,6 @@ class TwoLinesParser:
 
         def beginRead():
             self.__readIndex += 1
-            print(self.__lines[self.__readIndex])
             return self.__lines[self.__readIndex]
         
         def readline():
