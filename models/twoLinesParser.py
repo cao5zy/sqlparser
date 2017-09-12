@@ -11,7 +11,7 @@ class TwoLinesParser:
 
     @property
     def lineTwo(self):
-        return "" if len(self.__buffer) == 1 else self.__buffer[1]
+        return "" if len(self.__buffer) <= 1 else self.__buffer[1]
 
     @property
     def canRead(self):
@@ -23,7 +23,6 @@ class TwoLinesParser:
 
         def beginRead():
             self.__readIndex += 1
-            print('begin read')
             print(self.__lines[self.__readIndex])
             return self.__lines[self.__readIndex]
         
@@ -31,13 +30,12 @@ class TwoLinesParser:
             if self.canRead:
                 self.__buffer.append(beginRead())
 
-            if len(self.__buffer) < 2:
-                readline()
-            elif len(self.__buffer) == 2:
-                return
-            else:
-                print('remove first one')
-                self.__buffer = self.__buffer[1:3]
+                if len(self.__buffer) < 2:
+                    readline()
+                elif len(self.__buffer) == 2:
+                    return
+                else:
+                    self.__buffer = self.__buffer[1:3]
 
         readline()
         
