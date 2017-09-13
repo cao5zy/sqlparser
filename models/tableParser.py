@@ -30,4 +30,4 @@ class TableParser:
 
             result += parseLine(parser.lineTwo)
 
-        return result
+        return list(set(result))
