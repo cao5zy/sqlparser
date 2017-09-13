@@ -1,13 +1,17 @@
 from models.tableParser import TableParser
 from models.twoLinesParser import TwoLinesParser
+import sys
 
 def main():
     parser = TableParser(TwoLinesParser(getlines()))
-    l1 = parser.parse()
-    list(map(lambda n:print(n), sorted(l1, key=l1.index)))
+    l1 = list(map(lambda n:n.replace('[', '').replace(']', ''), parser.parse()))
+    def key(el):
+        return el
+
+    list(map(lambda n:print(n), sorted(set(l1), key=key)))
 
 def getlines():
-    with open('sql.sql') as file:
+    with open(sys.argv[1]) as file:
         lines = []
 
         line = file.readline()
