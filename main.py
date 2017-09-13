@@ -3,7 +3,8 @@ from models.twoLinesParser import TwoLinesParser
 
 def main():
     parser = TableParser(TwoLinesParser(getlines()))
-    list(map(lambda n:print(n), parser.parse()))
+    l1 = parser.parse()
+    list(map(lambda n:print(n), sorted(l1, key=l1.index)))
 
 def getlines():
     with open('sql.sql') as file:
