@@ -8,4 +8,4 @@ def test_lineReader():
 	for index, line in enumerate(lineReader.read()):
 		index == 0 and assert_that(line).is_equal_to('1')
 		index == 1 and assert_that(line).is_equal_to('2')
-
+		index == 2 and assert_that(line).is_equal_to('3')
