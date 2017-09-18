@@ -4,11 +4,15 @@ import sys
 
 def main():
     parser = ImprovedTableParser(LineReader(getlines()))
-    l1 = list(map(lambda n:n.replace('[', '').replace(']', ''), parser.parse()))
-    def key(el):
-        return el
+    # l1 = list(map(lambda n:n.replace('[', '').replace(']', ''), parser.parse()))
 
-    list(map(lambda n:print(n), sorted(set(l1), key=key)))
+    result = parser.parse()
+    for val1, val2 in result:
+        print('%s:%s' %(val1, val2))
+    # def key(el):
+    #     return el
+
+    # list(map(lambda n:print(n), sorted(set(l1), key=key)))
 
 def getlines():
     with open(sys.argv[1]) as file:

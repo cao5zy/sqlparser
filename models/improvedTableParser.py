@@ -1,5 +1,6 @@
 ﻿# improve table parser
 import re
+from collections import Counter
 
 linePatten = '''(?<=from|join)\s+([\w|.|\[|\]]+)'''
 brokenPatten = '''(from|join)\s*$'''
@@ -26,5 +27,11 @@ class ImprovedTableParser:
         while self.lineParser.canRead:
             result += parseLine(getLine(self.lineParser.read()))
 
-        return list(set(result))
+
+
+        result1 = list(map(lambda n: (n[0], n[1]), dict(Counter(list(map(lambda n:n.replace('[', '').replace(']', ''), result)))).items()))
+        def key(key):
+            return key[0]
+
+        return sorted(result1, key=key)
 
