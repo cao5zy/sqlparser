@@ -9,7 +9,7 @@ def test_improvedTableParser_normal():
 	tableParser = ImprovedTableParser(LineReader(lines))
 
 	results = tableParser.parse()
-	assert_that(results).contains('abc')
+	assert_that(results).contains(('abc', 1))
 
 def test_improvedTableParser_multiple():
 	lines = ["select * from abc", 
@@ -20,7 +20,7 @@ def test_improvedTableParser_multiple():
 	tableParser = ImprovedTableParser(LineReader(lines))
 
 	results = tableParser.parse()
-	assert_that(results).contains('abc')
-	assert_that(results).contains('acd')
-	assert_that(results).contains('abd')
+	assert_that(results).contains(('abc', 1))
+	assert_that(results).contains(('acd', 1))
+	assert_that(results).contains(('abd', 1))
 
