@@ -1,9 +1,9 @@
-from models.tableParser import TableParser
-from models.twoLinesParser import TwoLinesParser
+from models.improvedTableParser import ImprovedTableParser
+from models.lineReader import LineReader
 import sys
 
 def main():
-    parser = TableParser(TwoLinesParser(getlines()))
+    parser = ImprovedTableParser(LineReader(getlines()))
     l1 = list(map(lambda n:n.replace('[', '').replace(']', ''), parser.parse()))
     def key(el):
         return el
