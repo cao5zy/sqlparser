@@ -5,7 +5,7 @@ linePatten = '''(?<=from|join)\s+([#|@|\w|.|\[|\]]+)'''
 brokenPatten = '''(from|join)\s*$'''
 class FromTableParser:
 	def hasBroken(self, line):
-		return re.search(brokenPatten, line) != None
+		return re.search(brokenPatten, line.lower()) != None
 
 	def parseLine(self, line):
 		return re.findall(linePatten, line.lower())
