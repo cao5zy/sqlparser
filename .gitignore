@@ -1,4 +1,4 @@
-node_modules
+﻿node_modules
 *~
 *.pyclog
 log
@@ -7,3 +7,5 @@ CalcESMVolumes_Internal.sql
 SP_Calcs_DO_Daniel.txt
 tables_read_write.txt
 tables_cur.txt
+credential.txt 
+output.txt 
